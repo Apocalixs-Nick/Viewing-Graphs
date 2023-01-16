@@ -1,16 +1,14 @@
-package com.example.viewinggraphs
+package com.example.viewinggraphs.graphs
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.example.viewinggraphs.databinding.ActivityMainBinding
-import com.example.viewinggraphs.graphs.BarChart
-import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.charts.PieChart
+import android.content.Context
+import com.example.viewinggraphs.R
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 
-class MainActivity : AppCompatActivity() {
+class BarChart(private val barChartView: BarChart, private val barContext: Context) {
 
-    private lateinit var binding: ActivityMainBinding
-/*
     // Variable indicating graph
     lateinit var barChart: BarChart
 
@@ -21,21 +19,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var barDataSet: BarDataSet
 
     // Variable for creating an Array list for bar data
-    lateinit var barEntriesList: ArrayList<BarEntry>*/
+    lateinit var barEntriesList: ArrayList<BarEntry>
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        /*val barChartView = findViewById<com.github.mikephil.charting.charts.BarChart>(R.id.bar_graphic)
-        val bar = BarChart(barChartView,this.applicationContext)
-        bar.setBarChartData()*/
-
-        val pieChartView = findViewById<PieChart>(R.id.pie_graphic)
-        val pie = com.example.viewinggraphs.graphs.PieChart(pieChartView,this.applicationContext)
-        pie.setPieChartData()
-    }
-/*
     fun setBarChartData() {
         /*
         //x axis values
@@ -70,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         }*/
 
         // Graph acquisition
-        barChart = findViewById(R.id.graphic1)
+        barChart = barChartView.findViewById(R.id.bar_graphic)
 
         //Function call to add data to list of Arrays
         getBarChartData()
@@ -85,13 +70,15 @@ class MainActivity : AppCompatActivity() {
         barChart.data = barData
 
         // Setting bar color
-        barDataSet.color = resources.getColor(R.color.purple_500)
+        barDataSet.color = barContext.resources.getColor(R.color.purple_500)
 
         // Text size
         barDataSet.valueTextSize = 12f
 
         // Set description as false
         barChart.description.isEnabled = false
+
+        barChart.animateXY(3000,3000)
 
     }
 
@@ -108,5 +95,5 @@ class MainActivity : AppCompatActivity() {
         barEntriesList.add(BarEntry(4f, 4f))
         barEntriesList.add(BarEntry(5f, 5f))
 
-    }*/
+    }
 }
