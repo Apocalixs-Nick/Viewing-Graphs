@@ -1,5 +1,6 @@
 package com.example.viewinggraphs.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import com.example.viewinggraphs.databinding.FragmentBarChartBinding
 import com.example.viewinggraphs.databinding.FragmentPieChartBinding
 import com.example.viewinggraphs.graphs.BarChart
 import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.Legend
 
 /**
  * A simple [Fragment] subclass.
@@ -37,6 +39,14 @@ class PieChartFragment : Fragment() {
         with(pie) {
             this?.setPieChartData()
         }
+
+        val legend = pieChartView.legend
+        legend.form = Legend.LegendForm.CIRCLE
+        legend.textColor = Color.BLACK
+        legend.textSize = 12f
+        legend.xEntrySpace = 5f
+        legend.yEntrySpace = 5f
+        legend.isEnabled = true
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.viewinggraphs.graphs
 
 import android.content.Context
+import android.util.Log
 import com.example.viewinggraphs.R
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
@@ -22,37 +23,6 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
     lateinit var barEntriesList: ArrayList<BarEntry>
 
     fun setBarChartData() {
-        /*
-        //x axis values
-
-        val xvalue = ArrayList<String>()
-        xvalue.add("Monday")
-        xvalue.add("Tuesday")
-        xvalue.add("Wednesday")
-        xvalue.add("Thursday")
-        xvalue.add("Saturday")
-        xvalue.add("Sunday")
-
-        //y axis values or bar data
-
-        val barEntry = ArrayList<BarEntry>()
-        barEntry.add(BarEntry(4f, 0f))
-        barEntry.add(BarEntry(3.5f,1f))
-        barEntry.add(BarEntry(8.9f,2f))
-        barEntry.add(BarEntry(5.6f,3f))
-        barEntry.add(BarEntry(2f,4f))
-        barEntry.add(BarEntry(6f,5f))
-
-
-        val barDataSet = BarDataSet(barEntry, "First")
-        barDataSet.color = resources.getColor(R.color.black)
-
-        val data = BarData(xvalue, barDataSet)
-        binding.apply {
-            graphic1.data = data
-            graphic1.setBackgroundColor(resources.getColor(R.color.purple_200))
-            graphic1.animateXY(3000, 3000)
-        }*/
 
         // Graph acquisition
         barChart = barChartView.findViewById(R.id.bar_graphic)
@@ -70,10 +40,30 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
         barChart.data = barData
 
         // Setting bar color
-        barDataSet.color = barContext.resources.getColor(R.color.purple_500)
+        //barDataSet.color = barContext.resources.getColor(R.color.purple_500)
+        // Setting bar color
+        var i = 0
+        for (barEntry in barEntriesList) {
+            //barDataSet.color = barContext.resources.getColor(list[i].colorCode)
+            // add a lot of colors to list
+            val colors: ArrayList<Int> = ArrayList()
+            colors.add(barContext.resources.getColor(R.color.red))
+            colors.add(barContext.resources.getColor(R.color.blue))
+            colors.add(barContext.resources.getColor(R.color.sky_blue))
+            colors.add(barContext.resources.getColor(R.color.green))
+            colors.add(barContext.resources.getColor(R.color.pink))
+            colors.add(barContext.resources.getColor(R.color.yellow))
+            // on below line we are setting colors.
+            barDataSet.colors = colors
+            i++
+        }
+
+
 
         // Text size
-        barDataSet.valueTextSize = 12f
+        barDataSet.valueTextSize = 16f
+
+        //barDataSet.valueTextColor = barContext.resources.getColor(R.color.teal_200)
 
         // Set description as false
         barChart.description.isEnabled = false
@@ -90,10 +80,12 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
 
         // Adding the data
         barEntriesList.add(BarEntry(1f, 1f))
-        barEntriesList.add(BarEntry(2f, 2f))
+        barEntriesList.add(BarEntry(5f, 2f))
         barEntriesList.add(BarEntry(3f, 3f))
-        barEntriesList.add(BarEntry(4f, 4f))
-        barEntriesList.add(BarEntry(5f, 5f))
+        barEntriesList.add(BarEntry(7f, 7f))
+        barEntriesList.add(BarEntry(9f, 5f))
+        barEntriesList.add(BarEntry(10f, 7f))
+        barEntriesList.add(BarEntry(15f, 5f))
 
     }
 }

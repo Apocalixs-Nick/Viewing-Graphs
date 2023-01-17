@@ -25,32 +25,6 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
 
     fun setPieChartData() {
 
-        /*// Graph acquisition
-        pieChart = pieChartView.findViewById(R.id.line_graphic)
-
-        //Function call to add data to list of Arrays
-        getPieChartData()
-
-        // Adding data to the graph
-        pieDataSet = PieDataSet(pieEntriesList, "Line Chart Data")
-
-        // Data initialization
-        pieData = PieData(pieDataSet)
-
-        //Setting the data in the graph
-        pieChart.data = pieData
-
-        // Setting bar color
-        pieDataSet.color = pieContext.resources.getColor(R.color.purple_500)
-
-        // Text size
-        pieDataSet.valueTextSize = 12f
-
-        // Set description as false
-        pieChart.description.isEnabled = false
-
-        pieChart.animateXY(3000,3000)*/
-
         // on below line we are initializing our
         // variable with their ids.
         pieChart = pieChartView.findViewById(R.id.pie_graphic)
@@ -94,14 +68,16 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
         // on below line we are disabling our legend for pie chart
         pieChart.legend.isEnabled = false
         pieChart.setEntryLabelColor(Color.WHITE)
-        pieChart.setEntryLabelTextSize(12f)
+        pieChart.setEntryLabelTextSize(16f)
 
         // on below line we are creating array list and
         // adding data to it to display in pie chart
         val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(70f))
-        entries.add(PieEntry(20f))
+        entries.add(PieEntry(45f))
         entries.add(PieEntry(10f))
+        entries.add(PieEntry(5f))
+        entries.add(PieEntry(15f))
+        entries.add(PieEntry(5f))
 
         // on below line we are setting pie data set
         val dataSet = PieDataSet(entries, "Mobile OS")
@@ -116,9 +92,12 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
 
         // add a lot of colors to list
         val colors: ArrayList<Int> = ArrayList()
-        colors.add(pieContext.resources.getColor(R.color.purple_200))
-        colors.add(pieContext.resources.getColor(R.color.purple_500))
-        colors.add(pieContext.resources.getColor(R.color.purple_700))
+        colors.add(pieContext.resources.getColor(R.color.red))
+        colors.add(pieContext.resources.getColor(R.color.green))
+        colors.add(pieContext.resources.getColor(R.color.blue))
+        colors.add(pieContext.resources.getColor(R.color.sky_blue))
+        colors.add(pieContext.resources.getColor(R.color.yellow))
+        colors.add(pieContext.resources.getColor(R.color.pink))
 
         // on below line we are setting colors.
         dataSet.colors = colors
@@ -136,19 +115,6 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
 
         // loading chart
         pieChart.invalidate()
-
-    }
-
-    /**
-     * Private function to add data to the list of items in our bar
-     */
-    private fun getPieChartData() {
-        pieEntriesList = ArrayList()
-
-        // Adding the data
-        pieEntriesList.add(PieEntry(1.0f, 1.0f))
-        pieEntriesList.add(PieEntry(5.0f, 5.0f))
-        pieEntriesList.add(PieEntry(4.0f, 4.0f))
 
     }
 }
