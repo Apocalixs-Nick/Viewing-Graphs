@@ -3,9 +3,6 @@ package com.example.viewinggraphs
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.viewinggraphs.databinding.ActivityMainBinding
-import com.example.viewinggraphs.graphs.BarChart
-import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.charts.PieChart
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,18 +20,36 @@ class MainActivity : AppCompatActivity() {
     // Variable for creating an Array list for bar data
     lateinit var barEntriesList: ArrayList<BarEntry>*/
 
+    //private lateinit var switchButton: Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        /*val viewPager = findViewById<ViewPager>(R.id.pager)
+        viewPager.adapter = ScrollPagesFragment(supportFragmentManager)*/
         /*val barChartView = findViewById<com.github.mikephil.charting.charts.BarChart>(R.id.bar_graphic)
         val bar = BarChart(barChartView,this.applicationContext)
-        bar.setBarChartData()*/
+        bar.setBarChartData()
 
         val pieChartView = findViewById<PieChart>(R.id.pie_graphic)
         val pie = com.example.viewinggraphs.graphs.PieChart(pieChartView,this.applicationContext)
-        pie.setPieChartData()
+        pie.setPieChartData()*/
+        /*switchButton = findViewById(R.id.switch_button)
+        switchButton.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                binding.barGraphic.visibility = View.VISIBLE
+            } else {
+                binding.barGraphic.visibility = View.GONE
+                binding.pieGraphic.visibility = View.VISIBLE
+            }
+        }*/
+
+
     }
+
 /*
     fun setBarChartData() {
         /*

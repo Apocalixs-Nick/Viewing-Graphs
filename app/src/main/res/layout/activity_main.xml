@@ -2,18 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/bar_graphic"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/pie_graphic"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <include layout="@layout/content_main" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
