@@ -1,5 +1,6 @@
 package com.example.viewinggraphs.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import com.example.viewinggraphs.R
 import com.example.viewinggraphs.databinding.FragmentBarChartBinding
 import com.example.viewinggraphs.graphs.BarChart
+import com.github.mikephil.charting.components.Legend
 
 /**
  * A simple [Fragment] subclass.
@@ -35,6 +37,18 @@ class BarChartFragment : Fragment() {
         with(bar) {
             this?.setBarChartData()
         }
+
+        barChartView.setExtraBottomOffset(5f)
+        barChartView.setExtraTopOffset(10f)
+
+        val legend = barChartView.legend
+        legend.form = Legend.LegendForm.SQUARE
+        legend.formSize = 20f
+        legend.textColor = Color.BLACK
+        legend.textSize = 18f
+        legend.xEntrySpace = 5f
+        legend.yEntrySpace = 5f
+        legend.isEnabled = true
     }
 
 }

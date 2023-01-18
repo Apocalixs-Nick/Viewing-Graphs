@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.example.viewinggraphs.databinding.FragmentScrollPagesBinding
+import com.example.viewinggraphs.graphs.CandleChart
 
 /**
  * A simple [Fragment] subclass.
@@ -20,6 +21,8 @@ class ScrollPagesFragment : Fragment() {
     private var _binding: FragmentScrollPagesBinding? = null
 
     private val binding get() = _binding!!
+
+    private val COUNT = 3
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +36,7 @@ class ScrollPagesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val pager: ViewPager = binding.pager
 
-        pager.offscreenPageLimit = 2
+        pager.offscreenPageLimit = COUNT
         pager.adapter = PageAdapter(activity?.supportFragmentManager)
     }
 
@@ -45,13 +48,14 @@ class ScrollPagesFragment : Fragment() {
              when (position) {
                 0 -> fragment = BarChartFragment()
                 1 -> fragment = PieChartFragment()
+                2 -> fragment = CandleStickChartFragment()
                 else -> fragment = BarChartFragment()
             }
             return fragment
         }
 
         override fun getCount(): Int {
-            return 2
+            return 3
         }
     }
 

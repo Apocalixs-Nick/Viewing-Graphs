@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.example.viewinggraphs.R
 import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
@@ -69,6 +70,10 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
         barChart.description.isEnabled = false
 
         barChart.animateXY(3000,3000)
+
+        barChart.xAxis.textSize = 20f
+        barChart.axisRight.textSize = 20f
+        barChart.axisLeft.textSize = 20f
 
     }
 
