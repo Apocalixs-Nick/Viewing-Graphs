@@ -46,6 +46,7 @@ class CandleChart(private val candleStickChart: CandleStickChart, private val co
         set.increasingPaintStyle = Paint.Style.FILL
         set.neutralColor = Color.BLUE
         set.valueTextSize = 16f
+        set.setDrawValues(false)
 
         // Set description as false
         candleStickChart.description.isEnabled = false

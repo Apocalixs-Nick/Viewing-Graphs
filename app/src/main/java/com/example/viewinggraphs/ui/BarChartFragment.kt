@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.viewinggraphs.R
 import com.example.viewinggraphs.databinding.FragmentBarChartBinding
+import com.example.viewinggraphs.enums.BarChartListXY
 import com.example.viewinggraphs.graphs.BarChart
 import com.github.mikephil.charting.components.Legend
 
@@ -32,10 +33,11 @@ class BarChartFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val listXY = BarChartListXY.values()
         val barChartView = view.findViewById<com.github.mikephil.charting.charts.BarChart>(R.id.bar_graphic)
         val bar = context?.let { BarChart(barChartView, it) }
         with(bar) {
-            this?.setBarChartData()
+            this?.setBarChartData(listXY)
         }
 
         barChartView.setExtraBottomOffset(5f)

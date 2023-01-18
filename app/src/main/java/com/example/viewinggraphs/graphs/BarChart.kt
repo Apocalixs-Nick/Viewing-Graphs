@@ -1,10 +1,9 @@
 package com.example.viewinggraphs.graphs
 
 import android.content.Context
-import android.util.Log
 import com.example.viewinggraphs.R
+import com.example.viewinggraphs.enums.BarChartListXY
 import com.github.mikephil.charting.charts.BarChart
-import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
@@ -23,13 +22,13 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
     // Variable for creating an Array list for bar data
     lateinit var barEntriesList: ArrayList<BarEntry>
 
-    fun setBarChartData() {
+    fun setBarChartData(listXY: Array<BarChartListXY>) {
 
         // Graph acquisition
         barChart = barChartView.findViewById(R.id.bar_graphic)
 
         //Function call to add data to list of Arrays
-        getBarChartData()
+        getBarChartData(listXY = listXY)
 
         // Adding data to the graph
         barDataSet = BarDataSet(barEntriesList, "Bar Chart Data")
@@ -80,17 +79,21 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
     /**
      * Private function to add data to the list of items in our bar
      */
-    private fun getBarChartData() {
+    private fun getBarChartData(listXY: Array<BarChartListXY>) {
         barEntriesList = ArrayList()
 
         // Adding the data
-        barEntriesList.add(BarEntry(1f, 1f))
+        /*barEntriesList.add(BarEntry(1f, 1f))
         barEntriesList.add(BarEntry(5f, 2f))
         barEntriesList.add(BarEntry(3f, 3f))
         barEntriesList.add(BarEntry(7f, 7f))
         barEntriesList.add(BarEntry(9f, 5f))
         barEntriesList.add(BarEntry(10f, 7f))
-        barEntriesList.add(BarEntry(15f, 5f))
+        barEntriesList.add(BarEntry(15f, 5f))*/
+
+        for (i in 0 until listXY.size) {
+            barEntriesList.add(BarEntry(listXY[i].x.toFloat(), listXY[i].y.toFloat()))
+        }
 
     }
 }
