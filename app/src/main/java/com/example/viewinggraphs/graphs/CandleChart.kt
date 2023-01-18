@@ -3,31 +3,37 @@ package com.example.viewinggraphs.graphs
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Paint
+import android.util.Log
 import com.github.mikephil.charting.charts.CandleStickChart
 import com.github.mikephil.charting.data.CandleData
 import com.github.mikephil.charting.data.CandleDataSet
 import com.github.mikephil.charting.data.CandleEntry
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.properties.Delegates
 
 class CandleChart(private val candleStickChart: CandleStickChart, private val context: Context) {
+
+    private var prevOpen by Delegates.notNull<Float>()
+    private var prevClose by Delegates.notNull<Float>()
 
     fun setCandleChartData() {
         val yVals = ArrayList<CandleEntry>()
         val random = Random()
-        for (i in 0 until 20) {
-            val open = random.nextFloat() * 15 + 5
-            val close = open + random.nextFloat() * 5 - 2.5f
-            val high = Math.max(open, close) + random.nextFloat()
-            val low = Math.min(open, close) - random.nextFloat()
-            yVals.add(CandleEntry(i.toFloat(), high, low, open, close))
-        }
 
-        /*yVals.add(CandleEntry(0f, 10f, 8f, 9f, 9.5f))
-        yVals.add(CandleEntry(1f, 9f, 7f, 8f, 8.5f))
-        yVals.add(CandleEntry(2f, 8f, 6f, 7f, 7.5f))
-        yVals.add(CandleEntry(3f, 7f, 5f, 6f, 6.5f))
-        yVals.add(CandleEntry(4f, 6f, 4f, 5f, 5.5f))*/
+        //It is based from Heikin Ashi chart
+        for (i in 0 until 50) {
+            if (i == 0) {
+                prevOpen = random.nextFloat() * 15 + 5
+                prevClose = prevOpen + random.nextFloat() * 5 - 2.5f
+            } else {
+                prevOpen = (prevOpen + prevClose) / 2
+                prevClose = prevOpen + random.nextFloat() * 5 - 2.5f
+            }
+            val high = Math.max(prevOpen, prevClose) + random.nextFloat()
+            val low = Math.min(prevOpen, prevClose) - random.nextFloat()
+            yVals.add(CandleEntry(i.toFloat(), high, low, prevOpen, prevClose))
+        }
 
 
         val set = CandleDataSet(yVals, "Candle Stick Data")
