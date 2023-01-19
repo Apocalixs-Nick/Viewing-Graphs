@@ -58,7 +58,7 @@ class PieChartFragment : Fragment() {
             with(pie) {
                 this?.createPieChart()
             }
-        }
+
             val legend = pieChartView.legend
             legend.form = Legend.LegendForm.CIRCLE
             legend.formSize = 20f
@@ -67,6 +67,7 @@ class PieChartFragment : Fragment() {
             legend.xEntrySpace = 5f
             legend.yEntrySpace = 5f
             legend.isEnabled = true
+        }
         viewModel.pie.observe(viewLifecycleOwner, observer)
     }
 }
