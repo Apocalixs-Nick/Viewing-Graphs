@@ -35,14 +35,15 @@ class CandleStickChartFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val candleChartView = view.findViewById<com.github.mikephil.charting.charts.CandleStickChart>(R.id.candle_graphic)
+        val candleChartView =
+            view.findViewById<com.github.mikephil.charting.charts.CandleStickChart>(R.id.candle_graphic)
         val candle = context?.let { CandleChart(candleChartView, it) }
         with(candle) {
-            this?.setCandleChartData()
+            this?.createCandleChart()
         }
 
-        candleChartView.setExtraBottomOffset(5f)
-        candleChartView.setExtraTopOffset(10f)
+        candleChartView.extraBottomOffset = 5f
+        candleChartView.extraTopOffset = 10f
 
         candleChartView.setVisibleXRangeMaximum(30f)
         candleChartView.setVisibleYRangeMaximum(30f, YAxis.AxisDependency.LEFT)

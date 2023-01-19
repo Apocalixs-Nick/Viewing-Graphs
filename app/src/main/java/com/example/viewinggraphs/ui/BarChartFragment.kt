@@ -11,6 +11,7 @@ import com.example.viewinggraphs.databinding.FragmentBarChartBinding
 import com.example.viewinggraphs.enums.BarChartListXY
 import com.example.viewinggraphs.graphs.BarChart
 import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.components.XAxis
 
 /**
  * A simple [Fragment] subclass.
@@ -34,14 +35,15 @@ class BarChartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val listXY = BarChartListXY.values()
-        val barChartView = view.findViewById<com.github.mikephil.charting.charts.BarChart>(R.id.bar_graphic)
+        val barChartView =
+            view.findViewById<com.github.mikephil.charting.charts.BarChart>(R.id.bar_graphic)
         val bar = context?.let { BarChart(barChartView, it) }
         with(bar) {
-            this?.setBarChartData(listXY)
+            this?.createBarChart(listXY)
         }
 
-        barChartView.setExtraBottomOffset(5f)
-        barChartView.setExtraTopOffset(10f)
+        barChartView.extraBottomOffset = 5f
+        barChartView.extraTopOffset = 10f
 
         val legend = barChartView.legend
         legend.form = Legend.LegendForm.SQUARE

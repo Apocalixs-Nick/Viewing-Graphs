@@ -1,12 +1,17 @@
 package com.example.viewinggraphs.graphs
 
 import android.content.Context
+import android.content.res.Resources
+import android.util.TypedValue
+import androidx.core.graphics.toColorInt
 import com.example.viewinggraphs.R
+import com.example.viewinggraphs.dataSet.BarChartDataSet
 import com.example.viewinggraphs.enums.BarChartListXY
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import kotlin.collections.ArrayList
 
 class BarChart(private val barChartView: BarChart, private val barContext: Context) {
 
@@ -22,7 +27,9 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
     // Variable for creating an Array list for bar data
     lateinit var barEntriesList: ArrayList<BarEntry>
 
-    fun setBarChartData(listXY: Array<BarChartListXY>) {
+    var setData = BarChartDataSet()
+
+    fun createBarChart(listXY: Array<BarChartListXY>) {
 
         // Graph acquisition
         barChart = barChartView.findViewById(R.id.bar_graphic)
@@ -58,22 +65,24 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
             i++
         }
 
-
-
         // Text size
         barDataSet.valueTextSize = 16f
+        barDataSet.valueTextColor = getThemeTextColor(barContext)
 
         //barDataSet.valueTextColor = barContext.resources.getColor(R.color.teal_200)
 
         // Set description as false
         barChart.description.isEnabled = false
 
-        barChart.animateXY(3000,3000)
+        barChart.animateXY(3000, 3000)
 
         barChart.xAxis.textSize = 20f
         barChart.axisRight.textSize = 20f
         barChart.axisLeft.textSize = 20f
 
+        barChart.xAxis.textColor = getThemeTextColor(barContext)
+        barChart.axisRight.textColor = getThemeTextColor(barContext)
+        barChart.axisLeft.textColor = getThemeTextColor(barContext)
     }
 
     /**
@@ -83,17 +92,17 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
         barEntriesList = ArrayList()
 
         // Adding the data
-        /*barEntriesList.add(BarEntry(1f, 1f))
-        barEntriesList.add(BarEntry(5f, 2f))
-        barEntriesList.add(BarEntry(3f, 3f))
-        barEntriesList.add(BarEntry(7f, 7f))
-        barEntriesList.add(BarEntry(9f, 5f))
-        barEntriesList.add(BarEntry(10f, 7f))
-        barEntriesList.add(BarEntry(15f, 5f))*/
+        setData.setDataBarChart(listXY, barEntriesList)
+    }
 
-        for (i in 0 until listXY.size) {
-            barEntriesList.add(BarEntry(listXY[i].x.toFloat(), listXY[i].y.toFloat()))
-        }
-
+    open fun getThemeTextColor(context: Context): Int {
+        val typedValue = TypedValue()
+        val theme: Resources.Theme = context.theme
+        theme.resolveAttribute(
+            com.google.android.material.R.attr.colorOnBackground,
+            typedValue,
+            true
+        )
+        return typedValue.data
     }
 }

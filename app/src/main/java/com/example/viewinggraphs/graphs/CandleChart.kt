@@ -1,9 +1,12 @@
 package com.example.viewinggraphs.graphs
 
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Paint
-import android.util.Log
+import android.util.TypedValue
+import com.example.viewinggraphs.R
+import com.example.viewinggraphs.dataSet.CandleChartDataSet
 import com.github.mikephil.charting.charts.CandleStickChart
 import com.github.mikephil.charting.data.CandleData
 import com.github.mikephil.charting.data.CandleDataSet
@@ -14,29 +17,12 @@ import kotlin.properties.Delegates
 
 class CandleChart(private val candleStickChart: CandleStickChart, private val context: Context) {
 
-    private var prevOpen by Delegates.notNull<Float>()
-    private var prevClose by Delegates.notNull<Float>()
+    var setData = CandleChartDataSet()
 
-    fun setCandleChartData() {
-        val yVals = ArrayList<CandleEntry>()
-        val random = Random()
+    fun createCandleChart() {
+        val yVals = setData.setDataCandleChart()
 
-        //It is based from Heikin Ashi chart
-        for (i in 0 until 50) {
-            if (i == 0) {
-                prevOpen = random.nextFloat() * 15 + 5
-                prevClose = prevOpen + random.nextFloat() * 5 - 2.5f
-            } else {
-                prevOpen = (prevOpen + prevClose) / 2
-                prevClose = prevOpen + random.nextFloat() * 5 - 2.5f
-            }
-            val high = Math.max(prevOpen, prevClose) + random.nextFloat()
-            val low = Math.min(prevOpen, prevClose) - random.nextFloat()
-            yVals.add(CandleEntry(i.toFloat(), high, low, prevOpen, prevClose))
-        }
-
-
-        val set = CandleDataSet(yVals, "Candle Stick Data")
+        val set = CandleDataSet(yVals, "Random Candle Stick Data")
         //set.color = Color.rgb(80, 80, 80)
         set.shadowColor = Color.DKGRAY
         set.shadowWidth = 0.7f
@@ -53,7 +39,6 @@ class CandleChart(private val candleStickChart: CandleStickChart, private val co
 
         candleStickChart.moveViewToX(yVals.size - 15f)
 
-
         val data = CandleData(set)
         candleStickChart.data = data
         candleStickChart.invalidate()
@@ -61,5 +46,24 @@ class CandleChart(private val candleStickChart: CandleStickChart, private val co
         candleStickChart.xAxis.textSize = 20f
         candleStickChart.axisRight.textSize = 20f
         candleStickChart.axisLeft.textSize = 20f
+
+        candleStickChart.animateXY(3500, 3500)
+
+        candleStickChart.xAxis.textColor = getThemeTextColor(context)
+        candleStickChart.axisRight.textColor = getThemeTextColor(context)
+        candleStickChart.axisLeft.textColor = getThemeTextColor(context)
+        set.valueTextColor = getThemeTextColor(context)
+
+    }
+
+    open fun getThemeTextColor(context: Context): Int {
+        val typedValue = TypedValue()
+        val theme: Resources.Theme = context.theme
+        theme.resolveAttribute(
+            com.google.android.material.R.attr.colorOnBackground,
+            typedValue,
+            true
+        )
+        return typedValue.data
     }
 }

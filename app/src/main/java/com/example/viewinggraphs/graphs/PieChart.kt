@@ -4,13 +4,14 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import com.example.viewinggraphs.R
+import com.example.viewinggraphs.dataSet.PieChartDataSet
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
 
-class PieChart(private val pieChartView: PieChart, private val pieContext: Context) {
+class PieChart(private val pieChartView: PieChart, private val pieContext: Context, dataList: List<Int>) {
     // Variable indicating graph
     lateinit var pieChart: PieChart
 
@@ -23,7 +24,9 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
     // Variable for creating an Array list for bar data
     lateinit var pieEntriesList: ArrayList<PieEntry>
 
-    fun setPieChartData() {
+    var setData = PieChartDataSet(dataList)
+
+    fun createPieChart() {
 
         // on below line we are initializing our
         // variable with their ids.
@@ -40,7 +43,7 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
 
         // on below line we are setting hole
         // and hole color for pie chart
-        pieChart.setDrawHoleEnabled(true)
+        pieChart.setDrawHoleEnabled(false)
         pieChart.setHoleColor(Color.WHITE)
 
         // on below line we are setting circle color and alpha
@@ -72,12 +75,14 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
 
         // on below line we are creating array list and
         // adding data to it to display in pie chart
-        val entries: ArrayList<PieEntry> = ArrayList()
-        entries.add(PieEntry(45f))
+        var entries: ArrayList<PieEntry> = ArrayList()
+        /*entries.add(PieEntry(45f))
         entries.add(PieEntry(10f))
         entries.add(PieEntry(5f))
         entries.add(PieEntry(15f))
-        entries.add(PieEntry(5f))
+        entries.add(PieEntry(5f))*/
+
+        entries = setData.setDataPieChart()
 
         // on below line we are setting pie data set
         val dataSet = PieDataSet(entries, "Mobile OS")
@@ -112,6 +117,8 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
 
         // undo all highlights
         pieChart.highlightValues(null)
+
+        pieChart.animateXY(2000,2000)
 
         // loading chart
         pieChart.invalidate()
