@@ -33,9 +33,7 @@ class PieChartVIewModel : ViewModel() {
      */
     fun dataPieAcquisition() = CoroutineScope(Dispatchers.Main).launch {
         try {
-            if (_pie.value == null) {
-                _pie.postValue(PieChartApi.retrofitService.getPieInfo())
-            }
+            _pie.postValue(PieChartApi.retrofitService.getPieInfo())
 
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false

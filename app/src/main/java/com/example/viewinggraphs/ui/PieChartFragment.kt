@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.example.viewinggraphs.R
 import com.example.viewinggraphs.databinding.FragmentPieChartBinding
+import com.example.viewinggraphs.network.PieChartInfo
 import com.example.viewinggraphs.ui.viewmodel.PieChartVIewModel
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
@@ -38,22 +40,33 @@ class PieChartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.dataPieAcquisition()
-        val dataList = viewModel.getDataPie()
-        Log.v("Check", viewModel.getDataPie().isEmpty().toString())
+        //var dataList = viewModel.getDataPie()
         val pieChartView = view.findViewById<PieChart>(R.id.pie_graphic)
-        val pie = context?.let { com.example.viewinggraphs.graphs.PieChart(pieChartView, it, dataList) }
+        /*val pie = context?.let { com.example.viewinggraphs.graphs.PieChart(pieChartView, it, dataList) }
         with(pie) {
             this?.createPieChart()
+        }*/
+
+        val observer = Observer<List<PieChartInfo>> { dataList ->
+            val pie = context?.let {
+                com.example.viewinggraphs.graphs.PieChart(
+                    pieChartView,
+                    it,
+                    viewModel.getDataPie()
+                )
+            }
+            with(pie) {
+                this?.createPieChart()
+            }
         }
-
-        val legend = pieChartView.legend
-        legend.form = Legend.LegendForm.CIRCLE
-        legend.formSize = 20f
-        legend.textColor = Color.BLACK
-        legend.textSize = 18f
-        legend.xEntrySpace = 5f
-        legend.yEntrySpace = 5f
-        legend.isEnabled = true
+            val legend = pieChartView.legend
+            legend.form = Legend.LegendForm.CIRCLE
+            legend.formSize = 20f
+            legend.textColor = Color.BLACK
+            legend.textSize = 18f
+            legend.xEntrySpace = 5f
+            legend.yEntrySpace = 5f
+            legend.isEnabled = true
+        viewModel.pie.observe(viewLifecycleOwner, observer)
     }
-
 }
