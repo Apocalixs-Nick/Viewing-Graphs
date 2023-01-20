@@ -76,17 +76,13 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
         // on below line we are creating array list and
         // adding data to it to display in pie chart
         var entries: ArrayList<PieEntry> = ArrayList()
-        /*entries.add(PieEntry(45f))
-        entries.add(PieEntry(10f))
-        entries.add(PieEntry(5f))
-        entries.add(PieEntry(15f))
-        entries.add(PieEntry(5f))*/
+        /*entries.add(PieEntry(50f))
+        entries.add(PieEntry(50f))*/
 
         entries = setData.setDataPieChart()
 
         // on below line we are setting pie data set
         val dataSet = PieDataSet(entries, "Mobile OS")
-
         // on below line we are setting icons.
         dataSet.setDrawIcons(false)
 

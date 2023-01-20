@@ -52,7 +52,7 @@ class CandleStickChartFragment : Fragment() {
         val legend = candleChartView.legend
         legend.form = Legend.LegendForm.LINE
         legend.formSize = 25f
-        legend.textColor = Color.BLACK
+        legend.textColor = context?.resources?.getColor(R.color.red)!!
         legend.textSize = 18f
         legend.xEntrySpace = 5f
         legend.yEntrySpace = 5f

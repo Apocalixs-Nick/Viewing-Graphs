@@ -48,7 +48,7 @@ class BarChartFragment : Fragment() {
         val legend = barChartView.legend
         legend.form = Legend.LegendForm.SQUARE
         legend.formSize = 20f
-        legend.textColor = Color.BLACK
+        legend.textColor = context?.resources?.getColor(R.color.red)!!
         legend.textSize = 18f
         legend.xEntrySpace = 5f
         legend.yEntrySpace = 5f

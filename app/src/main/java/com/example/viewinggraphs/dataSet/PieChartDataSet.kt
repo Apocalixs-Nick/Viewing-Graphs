@@ -9,31 +9,17 @@ import kotlin.collections.ArrayList
 
 class PieChartDataSet(private val dataList: List<Int>) {
 
-    /*fun setDataPieChart(): ArrayList<PieEntry> {
-        viewModel.dataPieAcquisition()
-
-        val listInt = viewModel.getDataPie()
-        val entries: ArrayList<PieEntry> = ArrayList()
-        for (i in 0 until 6) {
-            entries.add(PieEntry(listInt.toFloat()))
-        }
-
-        /*entries.add(PieEntry(45f))
-        entries.add(PieEntry(10f))
-        entries.add(PieEntry(5f))
-        entries.add(PieEntry(15f))
-        entries.add(PieEntry(5f))
-        entries.add(PieEntry(5f))
-        entries.add(PieEntry(10f))
-        entries.add(PieEntry(5f))*/
-        return entries
-    }*/
-
     fun setDataPieChart(): ArrayList<PieEntry> {
-        val dataPie = dataList
+        val dataPie = dataList.shuffled().take(2)
         val entries: ArrayList<PieEntry> = ArrayList()
         for (i in dataPie.indices) {
             entries.add(PieEntry(dataPie[i].toFloat()))
+            Log.i("Check", entries[i].value.toString())
+        }
+        if (dataPie.sum() < 100) {
+            val remaining = 100 - dataPie.sum()
+            entries.add(PieEntry(remaining.toFloat()))
+            Log.i("CheckS", remaining.toString())
         }
         return entries
     }
