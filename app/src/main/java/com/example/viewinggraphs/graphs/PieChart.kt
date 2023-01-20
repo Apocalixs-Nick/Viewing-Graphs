@@ -105,7 +105,7 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
 
         // on below line we are setting pie data set
         val data = PieData(dataSet)
-        data.setValueFormatter(PercentFormatter())
+        data.setValueFormatter(PercentFormatter(pieChart))
         data.setValueTextSize(15f)
         data.setValueTypeface(Typeface.DEFAULT_BOLD)
         data.setValueTextColor(Color.WHITE)

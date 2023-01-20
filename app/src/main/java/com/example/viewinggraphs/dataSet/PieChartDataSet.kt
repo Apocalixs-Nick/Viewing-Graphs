@@ -1,10 +1,7 @@
 package com.example.viewinggraphs.dataSet
 
-import android.content.Context
 import android.util.Log
-import com.example.viewinggraphs.ui.viewmodel.PieChartVIewModel
 import com.github.mikephil.charting.data.PieEntry
-import java.util.*
 import kotlin.collections.ArrayList
 
 class PieChartDataSet(private val dataList: List<Int>) {
