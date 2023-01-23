@@ -1,6 +1,5 @@
 package com.example.viewinggraphs.ui
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +10,6 @@ import com.example.viewinggraphs.databinding.FragmentBarChartBinding
 import com.example.viewinggraphs.enums.BarChartListXY
 import com.example.viewinggraphs.graphs.BarChart
 import com.github.mikephil.charting.components.Legend
-import com.github.mikephil.charting.components.XAxis
 
 /**
  * A simple [Fragment] subclass.

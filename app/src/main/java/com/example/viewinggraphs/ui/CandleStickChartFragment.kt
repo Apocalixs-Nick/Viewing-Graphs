@@ -1,15 +1,12 @@
 package com.example.viewinggraphs.ui
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.viewinggraphs.R
-import com.example.viewinggraphs.databinding.FragmentBarChartBinding
 import com.example.viewinggraphs.databinding.FragmentCandleStickChartBinding
-import com.example.viewinggraphs.graphs.BarChart
 import com.example.viewinggraphs.graphs.CandleChart
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.YAxis
