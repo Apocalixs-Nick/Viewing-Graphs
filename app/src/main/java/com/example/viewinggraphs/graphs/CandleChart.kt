@@ -47,7 +47,7 @@ class CandleChart(private val candleStickChart: CandleStickChart, private val co
         candleStickChart.axisRight.textSize = 20f
         candleStickChart.axisLeft.textSize = 20f
 
-        candleStickChart.animateXY(3500, 3500)
+        candleStickChart.animateXY(2000, 2000)
 
         candleStickChart.xAxis.textColor = getThemeTextColor(context)
         candleStickChart.axisRight.textColor = getThemeTextColor(context)

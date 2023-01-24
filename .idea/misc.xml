@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/drawable/ic_select.xml" value="0.28" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/activity_main.xml" value="0.32760141093474426" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/bar_chart.xml" value="0.32671957671957674" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/content_main.xml" value="0.32671957671957674" />
@@ -24,6 +25,10 @@
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout/fragment_pie_chart.xml" value="0.3729166666666667" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout/fragment_scroll_pages.xml" value="0.18819655521783182" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout/fragment_scrool_pages.xml" value="0.3729166666666667" />
+        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout/menu.xml" value="0.3859375" />
+        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/menu-land/menu.xml" value="0.4510416666666667" />
+        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/menu-sw600dp-land/menu.xml" value="0.33828125" />
+        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/menu/menu.xml" value="0.3859375" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/menu/menu_switch.xml" value="0.3859375" />
       </map>
     </option>

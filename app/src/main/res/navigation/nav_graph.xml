@@ -3,9 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/scrollPagesFragment">
+    app:startDestination="@id/barChartFragment">
     <fragment
         android:id="@+id/scrollPagesFragment"
         android:name="com.example.viewinggraphs.ui.ScrollPagesFragment"
         android:label="ScrollPagesFragment" />
+    <fragment
+        android:id="@+id/barChartFragment"
+        android:name="com.example.viewinggraphs.ui.BarChartFragment"
+        android:label="fragment_bar_chart"
+        tools:layout="@layout/fragment_bar_chart" >
+        <action
+            android:id="@+id/action_barChartFragment_to_candleStickChartFragment"
+            app:destination="@id/candleStickChartFragment" />
+        <action
+            android:id="@+id/action_barChartFragment_to_pieChartFragment"
+            app:destination="@id/pieChartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/candleStickChartFragment"
+        android:name="com.example.viewinggraphs.ui.CandleStickChartFragment"
+        android:label="fragment_candle_stick_chart"
+        tools:layout="@layout/fragment_candle_stick_chart" >
+        <action
+            android:id="@+id/action_candleStickChartFragment_to_barChartFragment"
+            app:destination="@id/barChartFragment" />
+        <action
+            android:id="@+id/action_candleStickChartFragment_to_pieChartFragment"
+            app:destination="@id/pieChartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pieChartFragment"
+        android:name="com.example.viewinggraphs.ui.PieChartFragment"
+        android:label="fragment_pie_chart"
+        tools:layout="@layout/fragment_pie_chart" >
+        <action
+            android:id="@+id/action_pieChartFragment_to_barChartFragment"
+            app:destination="@id/barChartFragment" />
+        <action
+            android:id="@+id/action_pieChartFragment_to_candleStickChartFragment"
+            app:destination="@id/candleStickChartFragment" />
+    </fragment>
 </navigation>
