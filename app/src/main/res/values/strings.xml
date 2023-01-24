@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Viewing Graphs</string>
+    <string name="bar_chart">Bar Chart</string>
+    <string name="pie_chart">Pie Chart</string>
+    <string name="candle_stick_chart">Candle Stick Chart</string>
 </resources>

@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/drawable/ic_bar.xml" value="0.28" />
+        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/drawable/ic_candle.xml" value="0.28" />
+        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/drawable/ic_pie.xml" value="0.28" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/drawable/ic_select.xml" value="0.28" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/activity_main.xml" value="0.32760141093474426" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/bar_chart.xml" value="0.32671957671957674" />
-        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/content_main.xml" value="0.32671957671957674" />
+        <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/content_main.xml" value="0.24082934609250398" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/fragment_bar_chart.xml" value="0.32760141093474426" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/fragment_candle_stick_chart.xml" value="0.32760141093474426" />
         <entry key="..\:/Users/Nicola/AndroidStudioProjects/XML/ViewingGraphs/app/src/main/res/layout-land/fragment_pie_chart.xml" value="0.32760141093474426" />

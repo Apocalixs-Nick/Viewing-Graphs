@@ -21,34 +21,46 @@
         app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/nav_graph" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <!--<androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
         <Button
-            android:id="@+id/select1"
+            android:id="@+id/select11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
+            android:icon="@drawable/ic_bar"
+            android:gravity="center"
+            android:text="BAR"
+            android:textAlignment="center"
             tools:ignore="MissingConstraints"
             android:visibility="gone"/>
 
         <Button
-            android:id="@+id/select2"
+            android:id="@+id/select21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
+            android:icon="@drawable/ic_pie"
+            android:gravity="center"
+            android:text="PIE"
+            android:textAlignment="center"
             tools:ignore="MissingConstraints"
             android:visibility="gone"/>
 
 
         <Button
-            android:id="@+id/select3"
+            android:id="@+id/select13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3"
+            android:icon="@drawable/ic_candle"
+            android:text="CANDLE"
+            android:textAlignment="center"
+            android:gravity="center"
             tools:ignore="MissingConstraints"
             android:visibility="gone"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,9 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:ignore="MissingDefaultResource">
 
-    <item android:id="@+id/settings"
-    android:icon="@drawable/ic_select"
-    android:title="Scroll"
-    app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/select1"
+        android:icon="@drawable/ic_bar"
+        android:title="@string/bar_chart"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/select2"
+        android:icon="@drawable/ic_pie"
+        android:title="@string/pie_chart"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/select3"
+        android:icon="@drawable/ic_candle"
+        android:title="@string/candle_stick_chart"
+        app:showAsAction="ifRoom"/>
 
 </menu>
