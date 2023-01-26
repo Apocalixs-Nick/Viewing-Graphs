@@ -5,15 +5,12 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.TypedValue
-import com.example.viewinggraphs.R
 import com.example.viewinggraphs.dataSet.CandleChartDataSet
 import com.github.mikephil.charting.charts.CandleStickChart
+import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.data.CandleData
 import com.github.mikephil.charting.data.CandleDataSet
-import com.github.mikephil.charting.data.CandleEntry
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.properties.Delegates
 
 class CandleChart(private val candleStickChart: CandleStickChart, private val context: Context) {
 
@@ -35,7 +32,10 @@ class CandleChart(private val candleStickChart: CandleStickChart, private val co
         set.setDrawValues(false)
 
         // Set description as false
-        candleStickChart.description.isEnabled = false
+        val descChartDescription = Description()
+        descChartDescription.setEnabled(false)
+        candleStickChart.setDescription(descChartDescription)
+        //candleStickChart.description.isEnabled = false
 
         candleStickChart.moveViewToX(yVals.size - 15f)
 
@@ -43,16 +43,16 @@ class CandleChart(private val candleStickChart: CandleStickChart, private val co
         candleStickChart.data = data
         candleStickChart.invalidate()
 
-        candleStickChart.xAxis.textSize = 20f
+        /*candleStickChart.xAxis.textSize = 20f
         candleStickChart.axisRight.textSize = 20f
-        candleStickChart.axisLeft.textSize = 20f
+        candleStickChart.axisLeft.textSize = 20f*/
 
         candleStickChart.animateXY(2000, 2000)
 
-        candleStickChart.xAxis.textColor = getThemeTextColor(context)
+        /*candleStickChart.xAxis.textColor = getThemeTextColor(context)
         candleStickChart.axisRight.textColor = getThemeTextColor(context)
         candleStickChart.axisLeft.textColor = getThemeTextColor(context)
-        set.valueTextColor = getThemeTextColor(context)
+        set.valueTextColor = getThemeTextColor(context)*/
 
     }
 
