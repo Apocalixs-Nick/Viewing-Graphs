@@ -47,7 +47,6 @@ class PieChartTest {
     @Test
     fun testCreatePieChart() {
         pie.createPieChart()
-        //Mockito.verify(pieChart).invalidate()
         Assert.assertNotNull(pieChart)
     }
 }
