@@ -44,10 +44,7 @@ class CandleChartTest {
     fun testCreateCandleChart() {
         candleChart.createCandleChart()
         Mockito.verify(candleStickChart).invalidate()
-        /*Assert.assertFalse(candleStickChart.getDescription().isEnabled())
-        Assert.assertNotNull(candleStickChart.getXAxis())
-        Assert.assertNotNull(candleStickChart.getAxisRight())
-        Assert.assertNotNull(candleStickChart.getAxisLeft())*/
+        Assert.assertNotNull(candleStickChart)
     }
 }
 

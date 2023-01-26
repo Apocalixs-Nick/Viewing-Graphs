@@ -74,7 +74,7 @@ class BarChart(private val barChartView: BarChart, private val barContext: Conte
         // Set description as false
         barChart.description.isEnabled = false
 
-        barChart.animateXY(3000, 3000)
+        //barChart.animateXY(3000, 3000)
 
         barChart.xAxis.textSize = 20f
         barChart.axisRight.textSize = 20f

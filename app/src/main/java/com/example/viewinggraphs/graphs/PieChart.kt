@@ -66,7 +66,7 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
         pieChart.setHighlightPerTapEnabled(true)
 
         // on below line we are setting animation for our pie chart
-        pieChart.animateY(1400, Easing.EaseInOutQuad)
+        //pieChart.animateY(1400, Easing.EaseInOutQuad)
 
         // on below line we are disabling our legend for pie chart
         pieChart.legend.isEnabled = false
@@ -114,7 +114,7 @@ class PieChart(private val pieChartView: PieChart, private val pieContext: Conte
         // undo all highlights
         pieChart.highlightValues(null)
 
-        pieChart.animateXY(2000,2000)
+        //pieChart.animateXY(2000,2000)
 
         // loading chart
         pieChart.invalidate()
